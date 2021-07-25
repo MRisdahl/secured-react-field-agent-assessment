@@ -1,0 +1,102 @@
+
+body {
+  background: #ddd url(../images/circle-blues.png) repeat;
+}
+
+/* card styles */
+
+
+
+
+/* form styles */
+
+.field {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.field > label {
+  margin-right: 10px;
+}
+
+.field > input {
+  border: solid 1px #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  flex: 1 0 auto;
+}
+
+input:focus, textarea:focus {
+  background: #eee;
+  border-radius: 5px;
+}
+
+form button {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #999;
+  padding: 0.5em 2rem;
+  margin: 1rem 0;
+  border: none;
+}
+
+.icon {
+  background-color: #fff;
+  width: 2em;
+}
+
+/* @media screen and (min-width: 768) { */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background-color: #666;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    max-width: 270px;
+    min-width: 270px;
+    max-height: 200px;
+    min-height: 200px;
+    margin: 5px;
+    flex: 0 0 calc(33% - 10px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card > header {
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card > footer {
+    background-color: #000;
+    color: #fff;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .card > ul {
+    background-color: #666;
+    flex: 1 0 auto;
+  }
+
+  .card > main > li {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin: 1rem 0;
+  }
+
+  .card > div {
+    background-color: #666;
+    color: #fff;
+    
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  
