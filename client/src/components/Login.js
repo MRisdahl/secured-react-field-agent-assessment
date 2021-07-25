@@ -1,5 +1,5 @@
-import {useState, useContext} from 'react';
-import {Link, useHistory} from 'react-router-dom'
+import { useState, useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom'
 import AuthContext from '../AuthContext';
 
 import Errors from './Errors';
@@ -25,15 +25,52 @@ function Login() {
     const formSubmitHandler = (event) => {
         event.preventDefault();
 
-        auth.login(username)
 
-        history.push('/home');
+        const authAttempt = {
+            username,
+            password
+        };
+
+        const init = {
+            method: 'POST', // GET by default
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify(authAttempt)
+        };
+
+        fetch('http://localhost:5000/authenticate', init)
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                } else if (response.status === 403) {
+                    return null;
+                }
+                return Promise.reject('Something unexpected went wrong :)');
+            })
+            .then(data => {
+                // we either created the recorded...
+                if (data) {
+                    
+                    auth.login(data.jwt_token)
+
+                    history.push('/home');
+                } else {
+                    // we have error messages
+                    setErrors(['Login failure.']);
+                }
+            })
+            .catch(error => console.log(error));
+
+
+
     }
 
     return (
         <main>
             <h2>Login</h2>
-            
+            <Errors errors={errors} />
             <form onSubmit={formSubmitHandler}>
                 <div className="form-group">
                     <label htmlFor="username">Username:</label>
