@@ -70,7 +70,7 @@ function AddAgent() {
             })
             .then(data => {
               // we either created the recorded...
-              if (data.id) {
+              if (data.agentId) {
                 history.push('/agents')
               } else {
                 // we have error messages
@@ -90,27 +90,27 @@ function AddAgent() {
             <form onSubmit={addAgentFormSubmitHandler}>
 
                 <div className="field">
-                    <label for="firstName">First Name:</label>
+                    <label htmlFor="firstName">First Name:</label>
                     <input id="firstName" name="firstName" type="text" onChange={firstNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="middleName">Middle Name:</label>
+                    <label htmlFor="middleName">Middle Name:</label>
                     <input id="middleName" name="middleName" type="text" onChange={middleNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="lastName">Last Name:</label>
+                    <label htmlFor="lastName">Last Name:</label>
                     <input id="lastName" name="lastName" type="text" onChange={lastNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="dob">DOB:</label>
+                    <label htmlFor="dob">DOB:</label>
                     <input id="dob" name="dob" type="date" onChange={dobOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="heightInInches">Height in Inches:</label>
+                    <label htmlFor="heightInInches">Height in Inches:</label>
                     <input id="heightInInches" name="heightInInches" type="number" min="0" max="200" onChange={heightInInchesOnChangeHandler}></input>
                 </div>
 

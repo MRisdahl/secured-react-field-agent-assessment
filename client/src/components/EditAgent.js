@@ -14,7 +14,7 @@ function EditAgent() {
     
     const auth = useContext(AuthContext);
     
-    const { id } = useParams;
+    const { id } = useParams();
     const history = useHistory(); 
 
    
@@ -73,7 +73,7 @@ function EditAgent() {
         event.preventDefault();
 
         const updatedAgent = {
-            id: id,
+            agentId: id,
             firstName,
             middleName,
             lastName,
@@ -92,7 +92,7 @@ function EditAgent() {
             body: JSON.stringify(updatedAgent)
         };
 
-        fetch(`http://localhost:8080/api/agent/${updatedAgent.id}`, init)
+        fetch(`http://localhost:8080/api/agent/${updatedAgent.agentId}`, init)
             .then(response => {
                 if (response.status === 204) {
                     return null;
@@ -121,27 +121,27 @@ function EditAgent() {
             <form onSubmit={editAgentFormSubmitHandler}>
 
                 <div className="field">
-                    <label for="firstName">First Name:</label>
+                    <label htmlFor="firstName">First Name:</label>
                     <input id="firstName" name="firstName" type="text" value={firstName} onChange={firstNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="middleName">Middle Name:</label>
+                    <label htmlFor="middleName">Middle Name:</label>
                     <input id="middleName" name="middleName" type="text" value={middleName} onChange={middleNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="lastName">Last Name:</label>
+                    <label htmlFor="lastName">Last Name:</label>
                     <input id="lastName" name="lastName" type="text" value={lastName} onChange={lastNameOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="dob">DOB:</label>
+                    <label htmlFor="dob">DOB:</label>
                     <input id="dob" name="dob" type="date" value={dob} onChange={dobOnChangeHandler}></input>
                 </div>
 
                 <div className="field">
-                    <label for="heightInInches">Height in Inches:</label>
+                    <label htmlFor="heightInInches">Height in Inches:</label>
                     <input id="heightInInches" name="heightInInches" type="number" min="0" max="200" value={heightInInches} onChange={heightInInchesOnChangeHandler}></input>
                 </div>
 

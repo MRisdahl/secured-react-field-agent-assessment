@@ -50,11 +50,8 @@ function Login() {
                 return Promise.reject('Something unexpected went wrong :)');
             })
             .then(data => {
-                // we either created the recorded...
                 if (data) {
-                    
                     auth.login(data.jwt_token)
-
                     history.push('/home');
                 } else {
                     // we have error messages

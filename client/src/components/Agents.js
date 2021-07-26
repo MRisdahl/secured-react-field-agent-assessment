@@ -51,13 +51,13 @@ function Agents() {
     return (
         <main>
             <h2>Agents</h2>
-            <Link to="/todos/add" className="btn btn-primary mb-4">
+            <Link to="/agents/add" className="btn btn-primary mb-4">
                 <i className="bi bi-plus-circle-fill"></i> Add Agent
             </Link>
 
             <div className="cards">
                 {agents.map(agent => (
-                    <div className="card">
+                    <div className="card" key={agent.agentId}>
                         <header>
                             <h3>{agent.firstName} {agent.middleName} {agent.lastName}</h3>
                         </header>
@@ -71,7 +71,7 @@ function Agents() {
                                     <i className="bi bi-pencil"></i> Edit
                                 </Link>
                                 &nbsp;|&nbsp;
-                                <button onClick={() => agentDeleteClickHandler(agent.agentId)}><i class="bi bi-trash-fill"></i> Delete</button>
+                                <button onClick={() => agentDeleteClickHandler(agent.agentId)}><i className="bi bi-trash-fill"></i> Delete</button>
                             </div>
                         </footer>
                     </div>
