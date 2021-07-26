@@ -13,7 +13,7 @@ import Agents from './components/Agents';
 import AddAgent from './components/AddAgent';
 import EditAgent from './components/EditAgent';
 import DeleteAgent from './components/DeleteAgent';
-
+import NotFound from './components/NotFound';
 function App() {
   const [user, setUser] = useState(null);
 
@@ -95,7 +95,7 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/agents">
+          <Route exact path="/agents">
             {user ? (
               <Agents />
             ) : (
@@ -122,6 +122,9 @@ function App() {
             ) : (
               <Redirect to='/login' />
             )}
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
 
